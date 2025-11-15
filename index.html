@@ -3,151 +3,695 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mamatha Kunduri - Portfolio</title>
+  <title>Mamatha Kunduri  Portfolio</title>
+
+  <!-- Google Fonts similar to your CSS (Preahvihear + Poppins) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Preahvihear&display=swap" rel="stylesheet">
+
   <style>
-    body {
+    :root {
+      --bg: #11071F;
+      --bg-soft: #1A0B2E;
+      --accent: #9857D3;
+      --accent-soft: #693B93;
+      --text: #FFFFFF;
+      --muted: #CCD6F6;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #0a0a0a;
-      color: #ffffff;
-      overflow-x: hidden;
+      padding: 0;
     }
 
-    /* Animated tech/data-engineer background */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at center, rgba(0,140,255,0.15), transparent),
-                  repeating-linear-gradient(90deg, rgba(0,255,255,0.05) 0 1px, transparent 1px 4px);
-      animation: techGlow 8s infinite alternate ease-in-out;
-      z-index: -1;
+    body {
+      font-family: "Poppins", system-ui, sans-serif;
+      background: #FFFFFF;
+      color: var(--text);
+      min-height: 100vh;
     }
 
-    @keyframes techGlow {
-      from { filter: blur(2px); }
-      to { filter: blur(6px); }
+    /* Main dark background block (like your “Background”) */
+    .page-wrap {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: var(--bg);
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Gradient blobs inspired by your CSS */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .blob-1 {
+      width: 400px;
+      height: 400px;
+      left: 60px;
+      top: 80px;
+      background: radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%);
+    }
+
+    .blob-2 {
+      width: 450px;
+      height: 450px;
+      right: -80px;
+      top: 400px;
+      background: radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%);
+    }
+
+    .blob-3 {
+      width: 380px;
+      height: 380px;
+      left: -120px;
+      bottom: 120px;
+      background: radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%);
     }
 
     header {
-      padding: 25px;
-      background: rgba(20,20,20,0.9);
-      text-align: center;
-      font-size: 32px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+      background: var(--bg-soft);
+      box-shadow: 0 6px 22px -3px rgba(0, 0, 0, 0.4);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .hero {
-      padding: 80px 20px;
-      text-align: center;
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
-    .hero h1 {
-      font-size: 52px;
+
+    .logo-lines {
+      width: 35px;
+      height: 4px;
+      background: #FFFFFF;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .logo-lines::before,
+    .logo-lines::after {
+      content: "";
+      position: absolute;
+      width: 35px;
+      height: 4px;
+      background: #FFFFFF;
+      left: 0;
+      border-radius: 10px;
+    }
+
+    .logo-lines::before {
+      top: -12px;
+    }
+
+    .logo-lines::after {
+      top: 12px;
+    }
+
+    .logo-text {
+      font-family: "Preahvihear", sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    }
+
+    nav a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      padding: 60px 40px 80px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .hero-text-small {
+      font-family: "Preahvihear", sans-serif;
+      font-size: 18px;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .hero-text-small span {
+      text-decoration: underline;
+    }
+
+    .hero-title {
+      font-family: "Preahvihear", sans-serif;
+      font-size: 40px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-family: "Preahvihear", sans-serif;
+      font-size: 22px;
+      line-height: 1.5;
+      color: #FFFFFF;
       margin-bottom: 10px;
     }
-    .hero p {
+
+    .hero-caption {
+      font-size: 13px;
+      max-width: 360px;
+      color: #FFFFFF;
+      margin-bottom: 24px;
+    }
+
+    .hero-role {
+      font-family: "Preahvihear", sans-serif;
+      font-size: 21px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-role span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #FFFFFF;
+      color: var(--bg);
+      font-size: 14px;
+    }
+
+    .hero-about {
+      margin-top: 24px;
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 620px;
+      color: #FFFFFF;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      margin: 0 auto;
+    }
+
+    .hero-photo-ring {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 18%, rgba(67,67,67,0) 100%);
+      top: 0;
+      left: 0;
+    }
+
+    .hero-photo {
+      position: absolute;
+      width: 190px;
+      height: 230px;
+      border-radius: 18px;
+      top: 18px;
+      left: 35px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* SECTION TITLES */
+    .section-title {
+      font-family: "Preahvihear", sans-serif;
+      font-size: 32px;
+      margin: 40px 0 20px;
+    }
+
+    /* EXPERIENCE CARDS – based on your gradient rectangles */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .exp-card {
+      position: relative;
+      background: linear-gradient(110deg, #130428 20%, #251043 60%, #38126D 100%);
+      border-radius: 15px;
+      box-shadow: 4px 7px 26px rgba(0, 0, 0, 0.25);
+      padding: 20px 22px 24px;
+      overflow: hidden;
+    }
+
+    .exp-top-bar {
+      position: absolute;
+      left: -20px;
+      right: -20px;
+      top: -6px;
+      height: 10px;
+      background: #4F228D;
+    }
+
+    .exp-title {
+      margin-top: 18px;
       font-size: 22px;
-      opacity: 0.85;
+      font-weight: 600;
     }
 
-    .section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
+    .exp-company {
+      font-size: 14px;
+      margin-bottom: 4px;
+      color: #E0E0FF;
     }
 
-    h2 {
-      font-size: 34px;
-      margin-bottom: 25px;
-      text-align: center;
-      letter-spacing: 0.5px;
+    .exp-time {
+      font-size: 12px;
+      color: #B9A9FF;
+      margin-bottom: 10px;
     }
 
-    .card {
-      background: rgba(25,25,25,0.85);
-      padding: 25px;
-      margin-bottom: 25px;
+    .exp-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #FFFFFF;
+    }
+
+    .learn-more-btn {
+      margin-top: 14px;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 10px;
+      border: 1px solid #693B93;
+      background: #2C1250;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+
+    .project-card {
+      position: relative;
+      background: radial-gradient(90% 140% at 15% 20%, rgba(105,59,147,0.2) 0%, rgba(110,191,244,0.05) 70%, rgba(70,144,213,0) 100%);
       border-radius: 14px;
-      border: 1px solid rgba(0,255,255,0.15);
-      box-shadow: 0 0 12px rgba(0,255,255,0.08);
+      padding: 20px 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+    }
+
+    .project-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .project-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--muted);
+    }
+
+    .project-text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(152,87,211,0.25);
+      border: 1px solid rgba(152,87,211,0.5);
+    }
+
+    /* SKILLS */
+    .skills-wrap {
+      margin-bottom: 60px;
+    }
+
+    .skills-intro {
+      font-family: "Preahvihear", sans-serif;
+      font-size: 20px;
+      max-width: 680px;
+      margin-bottom: 22px;
+    }
+
+    .skills-highlight {
+      color: #A362FF;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .skill-pill {
+      background: #251C31;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 30px;
+    }
+
+    .contact-title {
+      font-family: "Preahvihear", sans-serif;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .contact-text {
+      font-size: 14px;
+      max-width: 700px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .contact-text a {
+      color: #A362FF;
+      text-decoration: none;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .social-links a {
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
     }
 
     footer {
       text-align: center;
-      padding: 25px;
-      background: rgba(18,18,18,0.9);
-      margin-top: 40px;
-      opacity: 0.75;
-      backdrop-filter: blur(10px);
+      font-size: 12px;
+      padding: 20px;
+      color: #FFFFFF;
+      background: #1A0B2E;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .hero-photo-wrap {
+        order: -1;
+        margin-bottom: 20px;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav ul {
+        gap: 16px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 40px 20px 60px;
+      }
+      .hero-title {
+        font-size: 32px;
+      }
+      .hero-subtitle {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>Mamatha Kunduri</header>
+  <div class="page-wrap">
+    <!-- Gradient blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
-  <section class="hero">
-    <img src="IMG_3181.jpg" alt="Profile Photo" style="width:180px;height:180px;border-radius:50%;object-fit:cover;margin-bottom:20px;" />
+    <header>
+      <div class="logo">
+        <div class="logo-lines"></div>
+        <span class="logo-text">MK PORTFOLIO</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Work</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <h1>Hi, I'm Mamatha Kunduri 👩‍💼</h1>
-    <p>Computer Science Student | Data Engineer | Cloud & AI Enthusiast | Full-Stack Developer</p>
-  </section>
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div>
+          <p class="hero-text-small">
+            <span>A Designer who</span>
+          </p>
+          <h1 class="hero-title">Judges a book by its cover...</h1>
+          <p class="hero-caption">
+            Because if the cover does not impress you, what else can?
+          </p>
 
-  <section class="section">
-    <h2>About Me</h2>
-    <div class="card">
-      <p>
-        Data Engineer with 3+ years of experience designing ETL pipelines, automating workflows,
-and managing cloud-based data systems. Proficient in Python, SQL, and AWS with proven
-ability to deliver optimized data solutions. Experienced in API integration, data modeling,
-and AI-assisted automation for analytics and reporting.
-      </p>
-    </div>
-  </section>
+          <p class="hero-subtitle">I'm a Software Engineer.</p>
+          <p class="hero-role">
+            Currently, I'm a Data Engineer / Developer.
+            <span>|</span>
+          </p>
 
-  <section class="section">
-    <h2>Experience</h2>
-    <div class="card">
-      <h3>Data Engineer | IDS | </h3>
-      <p>Designed and deployed Python-based ETL pipelines and RESTful APIs improving
-workflow automation by 30%.
-• Built data extraction systems using FastAPI and AWS Lambda for healthcare data
-processing.
-• Collaborated with analytics teams to deliver high-quality, secure, and real-time insights.</p>
-    </div>
-    <div class="card">
-      <h3>Junior Developer (.NET & SQL) | HCL Technologies</h3>
-      <p>Developed backend SQL systems and APIs for data synchronization.
-• Optimized database performance and reduced query latency by 25%.
-• Participated in Agile sprints, contributing to system design and testing.</p>
-    </div>
-  </section>
+          <p class="hero-about">
+            A Computer Science enthusiast focusing on Data Engineering, Cloud and AI systems.
+            I love building clean interfaces and powerful backends that turn complex data into
+            meaningful, delightful products.
+          </p>
+        </div>
 
-  <section class="section">
-    <h2>Projects</h2>
-    <div class="card">
-      <h3>Wastewater Disposal using Machine Learning</h3>
-      <p>Designed predictive ML model to optimize treated wastewater disposal methods.</p>
-    </div>
-    <div class="card">
-      <h3>High-Speed Rail California (SF–LA)</h3>
-      <p>Analyzed construction sequencing, cost, and feasibility for HSR Phase-1.</p>
-    </div>
-  </section>
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-ring"></div>
+          <div class="hero-photo">
+            <!-- Make sure mamatha.jpg is in the same folder as index.html -->
+            <img src="mamatha.jpg" alt="Mamatha Kunduri" />
+          </div>
+        </div>
+      </section>
 
-  <section class="section">
-    <h2>Skills</h2>
-    <div class="card">
-      <p>Python, SQL, Data Engineering, AWS, AutoCAD, Revit, Machine Learning</p>
-    </div>
-  </section>
+      <!-- ABOUT / SUMMARY -->
+      <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p class="hero-about">
+          I’m passionate about crafting digital experiences that balance user needs and business goals.
+          I enjoy working across the stack: designing intuitive UI, developing APIs, and building
+          data pipelines that support intelligent features such as recommendations and analytics.
+        </p>
+      </section>
 
-  <footer>
-    © 2025 Mamatha Kunduri • Portfolio Website
-  </footer>
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="experience-grid">
+          <article class="exp-card">
+            <div class="exp-top-bar"></div>
+            <h3 class="exp-title">Software / Data Engineer</h3>
+            <p class="exp-company">Example Company</p>
+            <p class="exp-time">2023 – Present</p>
+            <p class="exp-desc">
+              Built data pipelines and internal tools that helped teams explore metrics,
+              monitor systems and ship features faster. Worked closely with designers and
+              product managers to ship user-focused experiences.
+            </p>
+            <span class="learn-more-btn">LEARN MORE</span>
+          </article>
+
+          <article class="exp-card">
+            <div class="exp-top-bar"></div>
+            <h3 class="exp-title">Frontend Developer</h3>
+            <p class="exp-company">Freelance</p>
+            <p class="exp-time">2021 – 2023</p>
+            <p class="exp-desc">
+              Designed and developed responsive websites and dashboards for startups and small
+              businesses, focusing on performance, accessibility and visual storytelling.
+            </p>
+            <span class="learn-more-btn">LEARN MORE</span>
+          </article>
+
+          <article class="exp-card">
+            <div class="exp-top-bar"></div>
+            <h3 class="exp-title">UI/UX Designer</h3>
+            <p class="exp-company">Personal Projects</p>
+            <p class="exp-time">2019 – 2021</p>
+            <p class="exp-desc">
+              Conceptualized and prototyped mobile and web interfaces, ran quick user tests
+              and iterated on flows to improve clarity and reduce friction.
+            </p>
+            <span class="learn-more-btn">LEARN MORE</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <p class="project-label">Featured Project</p>
+            <h3 class="project-title">Spotify Data Visualizer</h3>
+            <p class="project-text">
+              A web app for visualizing personalized Spotify data. View top artists, tracks,
+              recently played songs and detailed audio features. Create and save playlists of
+              recommended tracks.
+            </p>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Spotify API</span>
+              <span class="tag">Data Viz</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <p class="project-label">Example Project</p>
+            <h3 class="project-title">AI-Powered Resume Analyzer</h3>
+            <p class="project-text">
+              A tool that reads resumes, extracts skills and experience, and matches
+              them to job descriptions using NLP and vector similarity search.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">NLP</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="skills-wrap">
+        <h2 class="section-title">Skills</h2>
+        <p class="skills-intro">
+          I'm currently looking to join a
+          <span class="skills-highlight">cross-functional</span>
+          team that values improving people’s lives through accessible, data-driven design.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-pill">Python · SQL · JavaScript</div>
+          <div class="skill-pill">Data Engineering · ETL · Pipelines</div>
+          <div class="skill-pill">AWS / GCP · Cloud Services</div>
+          <div class="skill-pill">React · Next.js · Frontend</div>
+          <div class="skill-pill">REST APIs · Microservices</div>
+          <div class="skill-pill">PostgreSQL · MongoDB</div>
+          <div class="skill-pill">Figma · UI/UX Design</div>
+          <div class="skill-pill">Git · CI/CD · Testing</div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact-section">
+        <h2 class="contact-title">Contact</h2>
+        <p class="contact-text">
+          I’m currently looking to join a cross-functional team or collaborate on meaningful
+          projects. If you have a role in mind or just want to say hi, let’s connect:
+          <br />
+          <strong>Email:</strong>
+          <a href="mailto:your-email@example.com">your-email@example.com</a>
+        </p>
+
+        <div class="social-links">
+          <a href="#" target="_blank">LinkedIn</a>
+          <a href="#" target="_blank">GitHub</a>
+          <a href="#" target="_blank">Instagram</a>
+          <a href="#" target="_blank">Portfolio PDF</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © 2025 Mamatha Kunduri — Designed & built with love.
+    </footer>
+  </div>
 </body>
 </html>
