@@ -3,695 +3,328 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mamatha Kunduri  Portfolio</title>
+  <title>Mamatha Kunduri | Data Engineer</title>
 
-  <!-- Google Fonts similar to your CSS (Preahvihear + Poppins) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Preahvihear&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #11071F;
-      --bg-soft: #1A0B2E;
-      --accent: #9857D3;
-      --accent-soft: #693B93;
-      --text: #FFFFFF;
-      --muted: #CCD6F6;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Poppins", system-ui, sans-serif;
-      background: #FFFFFF;
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    /* Main dark background block (like your “Background”) */
-    .page-wrap {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-      min-height: 100vh;
-      background: var(--bg);
-      overflow: hidden;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Gradient blobs inspired by your CSS */
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(2px);
-      opacity: 0.9;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .blob-1 {
-      width: 400px;
-      height: 400px;
-      left: 60px;
-      top: 80px;
-      background: radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%);
-    }
-
-    .blob-2 {
-      width: 450px;
-      height: 450px;
-      right: -80px;
-      top: 400px;
-      background: radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%);
-    }
-
-    .blob-3 {
-      width: 380px;
-      height: 380px;
-      left: -120px;
-      bottom: 120px;
-      background: radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%);
-    }
-
-    header {
-      position: relative;
-      z-index: 1;
-      background: var(--bg-soft);
-      box-shadow: 0 6px 22px -3px rgba(0, 0, 0, 0.4);
-      padding: 20px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .logo-lines {
-      width: 35px;
-      height: 4px;
-      background: #FFFFFF;
-      border-radius: 10px;
-      position: relative;
-    }
-
-    .logo-lines::before,
-    .logo-lines::after {
-      content: "";
-      position: absolute;
-      width: 35px;
-      height: 4px;
-      background: #FFFFFF;
-      left: 0;
-      border-radius: 10px;
-    }
-
-    .logo-lines::before {
-      top: -12px;
-    }
-
-    .logo-lines::after {
-      top: 12px;
-    }
-
-    .logo-text {
-      font-family: "Preahvihear", sans-serif;
-      font-size: 14px;
-      letter-spacing: 0.08em;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-    }
-
-    nav a {
-      color: #FFFFFF;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      letter-spacing: 0.02em;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    main {
-      position: relative;
-      z-index: 1;
-      padding: 60px 40px 80px;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 40px;
-      align-items: center;
-      margin-bottom: 80px;
-    }
-
-    .hero-text-small {
-      font-family: "Preahvihear", sans-serif;
-      font-size: 18px;
-      color: #FFFFFF;
-      margin-bottom: 8px;
-    }
-
-    .hero-text-small span {
-      text-decoration: underline;
-    }
-
-    .hero-title {
-      font-family: "Preahvihear", sans-serif;
-      font-size: 40px;
-      line-height: 1.3;
-      margin-bottom: 12px;
-    }
-
-    .hero-subtitle {
-      font-family: "Preahvihear", sans-serif;
-      font-size: 22px;
-      line-height: 1.5;
-      color: #FFFFFF;
-      margin-bottom: 10px;
-    }
-
-    .hero-caption {
-      font-size: 13px;
-      max-width: 360px;
-      color: #FFFFFF;
-      margin-bottom: 24px;
-    }
-
-    .hero-role {
-      font-family: "Preahvihear", sans-serif;
-      font-size: 21px;
-      margin-top: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .hero-role span {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      background: #FFFFFF;
-      color: var(--bg);
-      font-size: 14px;
-    }
-
-    .hero-about {
-      margin-top: 24px;
-      font-size: 18px;
-      line-height: 1.6;
-      max-width: 620px;
-      color: #FFFFFF;
-    }
-
-    .hero-photo-wrap {
-      position: relative;
-      width: 260px;
-      height: 260px;
-      margin: 0 auto;
-    }
-
-    .hero-photo-ring {
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 18%, rgba(67,67,67,0) 100%);
-      top: 0;
-      left: 0;
-    }
-
-    .hero-photo {
-      position: absolute;
-      width: 190px;
-      height: 230px;
-      border-radius: 18px;
-      top: 18px;
-      left: 35px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-    }
-
-    .hero-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* SECTION TITLES */
-    .section-title {
-      font-family: "Preahvihear", sans-serif;
-      font-size: 32px;
-      margin: 40px 0 20px;
-    }
-
-    /* EXPERIENCE CARDS – based on your gradient rectangles */
-    .experience-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-bottom: 60px;
-    }
-
-    .exp-card {
-      position: relative;
-      background: linear-gradient(110deg, #130428 20%, #251043 60%, #38126D 100%);
-      border-radius: 15px;
-      box-shadow: 4px 7px 26px rgba(0, 0, 0, 0.25);
-      padding: 20px 22px 24px;
-      overflow: hidden;
-    }
-
-    .exp-top-bar {
-      position: absolute;
-      left: -20px;
-      right: -20px;
-      top: -6px;
-      height: 10px;
-      background: #4F228D;
-    }
-
-    .exp-title {
-      margin-top: 18px;
-      font-size: 22px;
-      font-weight: 600;
-    }
-
-    .exp-company {
-      font-size: 14px;
-      margin-bottom: 4px;
-      color: #E0E0FF;
-    }
-
-    .exp-time {
-      font-size: 12px;
-      color: #B9A9FF;
-      margin-bottom: 10px;
-    }
-
-    .exp-desc {
-      font-size: 13px;
-      line-height: 1.6;
-      color: #FFFFFF;
-    }
-
-    .learn-more-btn {
-      margin-top: 14px;
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 10px;
-      border: 1px solid #693B93;
-      background: #2C1250;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #FFFFFF;
-    }
-
-    /* PROJECTS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
-      margin-bottom: 60px;
-    }
-
-    .project-card {
-      position: relative;
-      background: radial-gradient(90% 140% at 15% 20%, rgba(105,59,147,0.2) 0%, rgba(110,191,244,0.05) 70%, rgba(70,144,213,0) 100%);
-      border-radius: 14px;
-      padding: 20px 22px;
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(20px);
-    }
-
-    .project-label {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .project-title {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--muted);
-    }
-
-    .project-text {
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 6px;
-    }
-
-    .tag {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(152,87,211,0.25);
-      border: 1px solid rgba(152,87,211,0.5);
-    }
-
-    /* SKILLS */
-    .skills-wrap {
-      margin-bottom: 60px;
-    }
-
-    .skills-intro {
-      font-family: "Preahvihear", sans-serif;
-      font-size: 20px;
-      max-width: 680px;
-      margin-bottom: 22px;
-    }
-
-    .skills-highlight {
-      color: #A362FF;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 18px;
-    }
-
-    .skill-pill {
-      background: #251C31;
-      border-radius: 999px;
-      padding: 10px 16px;
-      font-size: 13px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* CONTACT */
-    .contact-section {
-      margin-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding-top: 30px;
-    }
-
-    .contact-title {
-      font-family: "Preahvihear", sans-serif;
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-
-    .contact-text {
-      font-size: 14px;
-      max-width: 700px;
-      line-height: 1.8;
-      margin-bottom: 16px;
-    }
-
-    .contact-text a {
-      color: #A362FF;
-      text-decoration: none;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 16px;
-      margin-top: 10px;
-      font-size: 14px;
-    }
-
-    .social-links a {
-      color: #FFFFFF;
-      text-decoration: none;
-    }
-
-    .social-links a:hover {
-      color: var(--accent);
-    }
-
-    footer {
-      text-align: center;
-      font-size: 12px;
-      padding: 20px;
-      color: #FFFFFF;
-      background: #1A0B2E;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: left;
-      }
-
-      .hero-photo-wrap {
-        order: -1;
-        margin-bottom: 20px;
-      }
-
-      header {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      nav ul {
-        gap: 16px;
-        font-size: 14px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      main {
-        padding: 40px 20px 60px;
-      }
-      .hero-title {
-        font-size: 32px;
-      }
-      .hero-subtitle {
-        font-size: 18px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="page-wrap">
-    <!-- Gradient blobs -->
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
+  <div class="bg-orbit"></div>
+  <div class="bg-orbit orbit-2"></div>
+  <div class="bg-grid"></div>
 
-    <header>
-      <div class="logo">
-        <div class="logo-lines"></div>
-        <span class="logo-text">MK PORTFOLIO</span>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Work</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+  <header class="site-header">
+    <div class="logo">
+      <div class="logo-mark">MK</div>
+      <span class="logo-text">Mamatha Kunduri</span>
+    </div>
+    <nav class="nav">
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-      <!-- HERO -->
-      <section id="home" class="hero">
-        <div>
-          <p class="hero-text-small">
-            <span>A Designer who</span>
-          </p>
-          <h1 class="hero-title">Judges a book by its cover...</h1>
-          <p class="hero-caption">
-            Because if the cover does not impress you, what else can?
-          </p>
-
-          <p class="hero-subtitle">I'm a Software Engineer.</p>
-          <p class="hero-role">
-            Currently, I'm a Data Engineer / Developer.
-            <span>|</span>
-          </p>
-
-          <p class="hero-about">
-            A Computer Science enthusiast focusing on Data Engineering, Cloud and AI systems.
-            I love building clean interfaces and powerful backends that turn complex data into
-            meaningful, delightful products.
-          </p>
-        </div>
-
-        <div class="hero-photo-wrap">
-          <div class="hero-photo-ring"></div>
-          <div class="hero-photo">
-            <!-- Make sure mamatha.jpg is in the same folder as index.html -->
-            <img src="mamatha.jpg" alt="Mamatha Kunduri" />
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT / SUMMARY -->
-      <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <p class="hero-about">
-          I’m passionate about crafting digital experiences that balance user needs and business goals.
-          I enjoy working across the stack: designing intuitive UI, developing APIs, and building
-          data pipelines that support intelligent features such as recommendations and analytics.
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero section">
+      <div class="hero-content reveal">
+        <p class="eyebrow">Data Engineer · Cloud · ETL · APIs</p>
+        <h1>Hi, I'm <span class="accent">Mamatha Kunduri</span></h1>
+        <p class="hero-subtitle">
+          Data Engineer with 3+ years of experience designing ETL pipelines, automating workflows,
+          and building cloud-based data systems with Python, SQL, and AWS.
         </p>
-      </section>
-
-      <!-- EXPERIENCE -->
-      <section id="experience">
-        <h2 class="section-title">Work Experience</h2>
-        <div class="experience-grid">
-          <article class="exp-card">
-            <div class="exp-top-bar"></div>
-            <h3 class="exp-title">Software / Data Engineer</h3>
-            <p class="exp-company">Example Company</p>
-            <p class="exp-time">2023 – Present</p>
-            <p class="exp-desc">
-              Built data pipelines and internal tools that helped teams explore metrics,
-              monitor systems and ship features faster. Worked closely with designers and
-              product managers to ship user-focused experiences.
-            </p>
-            <span class="learn-more-btn">LEARN MORE</span>
-          </article>
-
-          <article class="exp-card">
-            <div class="exp-top-bar"></div>
-            <h3 class="exp-title">Frontend Developer</h3>
-            <p class="exp-company">Freelance</p>
-            <p class="exp-time">2021 – 2023</p>
-            <p class="exp-desc">
-              Designed and developed responsive websites and dashboards for startups and small
-              businesses, focusing on performance, accessibility and visual storytelling.
-            </p>
-            <span class="learn-more-btn">LEARN MORE</span>
-          </article>
-
-          <article class="exp-card">
-            <div class="exp-top-bar"></div>
-            <h3 class="exp-title">UI/UX Designer</h3>
-            <p class="exp-company">Personal Projects</p>
-            <p class="exp-time">2019 – 2021</p>
-            <p class="exp-desc">
-              Conceptualized and prototyped mobile and web interfaces, ran quick user tests
-              and iterated on flows to improve clarity and reduce friction.
-            </p>
-            <span class="learn-more-btn">LEARN MORE</span>
-          </article>
+        <div class="hero-actions">
+          <a href="#contact" class="btn primary">Let’s work together</a>
+          <a href="#projects" class="btn ghost">View projects</a>
         </div>
-      </section>
+        <div class="hero-meta">
+          <span>📍 Hackensack, NJ</span>
+          <span>☁️ AWS · Azure · Docker</span>
+          <span>🧠 AI-assisted automation</span>
+        </div>
+      </div>
 
-      <!-- PROJECTS -->
-      <section id="projects">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-          <article class="project-card">
-            <p class="project-label">Featured Project</p>
-            <h3 class="project-title">Spotify Data Visualizer</h3>
-            <p class="project-text">
-              A web app for visualizing personalized Spotify data. View top artists, tracks,
-              recently played songs and detailed audio features. Create and save playlists of
-              recommended tracks.
-            </p>
-            <div class="project-tags">
-              <span class="tag">React</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">Spotify API</span>
-              <span class="tag">Data Viz</span>
+      <div class="hero-photo reveal delay-1">
+        <!-- Put mamatha.jpg next to index.html -->
+        <div class="hero-photo-ring"></div>
+        <img src="mamatha.jpg" alt="Portrait of Mamatha Kunduri" />
+        <div class="hero-badge">
+          <span class="badge-title">3+ yrs</span>
+          <span class="badge-subtitle">Data Engineering</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="section-header reveal">
+        <h2>About</h2>
+        <p>Who I am and what I love to build.</p>
+      </div>
+      <div class="about-grid">
+        <div class="card reveal">
+          <p>
+            I’m a Data Engineer with experience designing and deploying Python-based ETL pipelines,
+            RESTful APIs, and cloud workloads on AWS and Azure. I enjoy turning messy,
+            high-volume data into reliable, analytics-ready assets for product and business teams.
+          </p>
+          <p>
+            My work spans API integration, data modeling, workflow automation, and AI-assisted
+            reporting – always with a focus on performance, reliability, and clear communication
+            with stakeholders.
+          </p>
+        </div>
+        <div class="card highlight-card reveal delay-1">
+          <h3>Quick Snapshot</h3>
+          <ul class="bullet-list">
+            <li>3+ years in data engineering & backend development</li>
+            <li>Strong in Python, SQL, FastAPI, and ETL pipelines</li>
+            <li>Hands-on with AWS Lambda, EC2, and Docker</li>
+            <li>Experience in healthcare data and analytics workflows</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="section-header reveal">
+        <h2>Experience</h2>
+        <p>Impact-driven work across data & backend engineering.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content card">
+            <div class="timeline-header">
+              <h3>Data Engineer</h3>
+              <span class="company">IDS</span>
+              <span class="time">Aug 2025 – Present</span>
             </div>
-          </article>
-
-          <article class="project-card">
-            <p class="project-label">Example Project</p>
-            <h3 class="project-title">AI-Powered Resume Analyzer</h3>
-            <p class="project-text">
-              A tool that reads resumes, extracts skills and experience, and matches
-              them to job descriptions using NLP and vector similarity search.
-            </p>
-            <div class="project-tags">
+            <ul class="bullet-list">
+              <li>Designed and deployed Python-based ETL pipelines and RESTful APIs, improving workflow automation by 30%.</li>
+              <li>Built data extraction systems using FastAPI and AWS Lambda for healthcare data processing.</li>
+              <li>Partnered with analytics teams to deliver secure, near real-time reporting layers.</li>
+            </ul>
+            <div class="tag-row">
               <span class="tag">Python</span>
               <span class="tag">FastAPI</span>
-              <span class="tag">NLP</span>
-              <span class="tag">PostgreSQL</span>
+              <span class="tag">AWS Lambda</span>
+              <span class="tag">ETL</span>
+              <span class="tag">Healthcare</span>
             </div>
-          </article>
-        </div>
-      </section>
+          </div>
+        </article>
 
-      <!-- SKILLS -->
-      <section id="skills" class="skills-wrap">
-        <h2 class="section-title">Skills</h2>
-        <p class="skills-intro">
-          I'm currently looking to join a
-          <span class="skills-highlight">cross-functional</span>
-          team that values improving people’s lives through accessible, data-driven design.
+        <article class="timeline-item reveal delay-1">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content card">
+            <div class="timeline-header">
+              <h3>Junior Developer (.NET &amp; SQL)</h3>
+              <span class="company">HCL Technologies</span>
+              <span class="time">Jul 2022 – Sep 2023</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Developed backend SQL systems and APIs for high-volume data synchronization.</li>
+              <li>Optimized database performance, reducing query latency by 25%.</li>
+              <li>Collaborated in Agile sprints, contributing to system design, testing, and deployment.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">SQL</span>
+              <span class="tag">C# / .NET</span>
+              <span class="tag">APIs</span>
+              <span class="tag">Performance tuning</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-header reveal">
+        <h2>Projects</h2>
+        <p>Selected work in data engineering, APIs, and analytics.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card reveal">
+          <div class="project-label">Featured Project</div>
+          <h3>AI Data Aggregator</h3>
+          <p>
+            A centralized data aggregation layer consolidating data from 25+ APIs using Python
+            and FastAPI. Handles retries, rate limits, schema normalization, and monitoring.
+          </p>
+          <ul class="bullet-list">
+            <li>Built modular connectors for third-party APIs with unified logging.</li>
+            <li>Standardized payloads into a common model, enabling downstream analytics.</li>
+            <li>Exposed metrics on ingestion health and latency.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Data Modeling</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal delay-1">
+          <div class="project-label">ETL Framework</div>
+          <h3>Data Processing Pipeline</h3>
+          <p>
+            A scalable ETL framework on AWS for high-volume data ingestion, transformation,
+            and loading into analytics-ready stores.
+          </p>
+          <ul class="bullet-list">
+            <li>Leveraged AWS Lambda and EC2 for compute and orchestration.</li>
+            <li>Implemented robust error handling, dead-letter queues, and observability.</li>
+            <li>Enabled incremental loads and schema evolution.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">AWS</span>
+            <span class="tag">ETL</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Cloud</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal delay-2">
+          <div class="project-label">Analytics</div>
+          <h3>Business Analytics Dashboard</h3>
+          <p>
+            Automated reporting pipelines combining structured and sentiment data to power
+            dashboards for business stakeholders.
+          </p>
+          <ul class="bullet-list">
+            <li>Integrated data from transactional systems and feedback channels.</li>
+            <li>Pre-computed aggregates and sentiment signals for faster BI queries.</li>
+            <li>Enabled self-service reporting for non-technical users.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Data Analytics</span>
+            <span class="tag">Dashboards</span>
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="section-header reveal">
+        <h2>Core Skills</h2>
+        <p>Tools and technologies I use every day.</p>
+      </div>
+
+      <div class="skills-wrap card reveal">
+        <div class="skills-columns">
+          <div>
+            <h3>Languages &amp; Backend</h3>
+            <div class="chip-row">
+              <span class="chip">Python</span>
+              <span class="chip">SQL</span>
+              <span class="chip">C#</span>
+              <span class="chip">FastAPI</span>
+            </div>
+          </div>
+          <div>
+            <h3>Databases &amp; Data</h3>
+            <div class="chip-row">
+              <span class="chip">MySQL</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">Data Modeling</span>
+              <span class="chip">ETL Pipelines</span>
+            </div>
+          </div>
+          <div>
+            <h3>Cloud &amp; DevOps</h3>
+            <div class="chip-row">
+              <span class="chip">AWS (Lambda, EC2)</span>
+              <span class="chip">Azure</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Git</span>
+            </div>
+          </div>
+          <div>
+            <h3>Analytics &amp; APIs</h3>
+            <div class="chip-row">
+              <span class="chip">REST APIs</span>
+              <span class="chip">Data Analytics</span>
+              <span class="chip">AI-assisted automation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <div class="section-header reveal">
+        <h2>Education &amp; Certifications</h2>
+      </div>
+
+      <div class="edu-grid">
+        <div class="card reveal">
+          <h3>MS in Computer and Information Science</h3>
+          <p class="company">Fairleigh Dickinson University, NJ</p>
+        </div>
+        <div class="card reveal delay-1">
+          <h3>B.Tech in Computer Science</h3>
+          <p class="company">Jawaharlal Nehru Technological University, Hyderabad</p>
+        </div>
+        <div class="card reveal delay-2">
+          <h3>Certifications</h3>
+          <ul class="bullet-list">
+            <li>AWS Certified Cloud Practitioner</li>
+            <li>AWS Certified AI Practitioner</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="section-header reveal">
+        <h2>Let’s Connect</h2>
+        <p>Have a role or project in mind? I’d love to hear about it.</p>
+      </div>
+      <div class="contact-card card reveal">
+        <p>
+          I'm open to data engineering, backend, and cloud-focused roles where I can help
+          design scalable data systems and automation workflows.
         </p>
-
-        <div class="skills-grid">
-          <div class="skill-pill">Python · SQL · JavaScript</div>
-          <div class="skill-pill">Data Engineering · ETL · Pipelines</div>
-          <div class="skill-pill">AWS / GCP · Cloud Services</div>
-          <div class="skill-pill">React · Next.js · Frontend</div>
-          <div class="skill-pill">REST APIs · Microservices</div>
-          <div class="skill-pill">PostgreSQL · MongoDB</div>
-          <div class="skill-pill">Figma · UI/UX Design</div>
-          <div class="skill-pill">Git · CI/CD · Testing</div>
+        <div class="contact-info">
+          <a href="tel:+12013977855">📞 201-397-7855</a>
+          <a href="mailto:mamathakunduri@gmail.com">📧 mamathakunduri@gmail.com</a>
+          <!-- Replace # with real profiles when ready -->
+          <a href="#" target="_blank">🔗 LinkedIn</a>
+          <a href="#" target="_blank">🐙 GitHub</a>
         </div>
-      </section>
+      </div>
+    </section>
+  </main>
 
-      <!-- CONTACT -->
-      <section id="contact" class="contact-section">
-        <h2 class="contact-title">Contact</h2>
-        <p class="contact-text">
-          I’m currently looking to join a cross-functional team or collaborate on meaningful
-          projects. If you have a role in mind or just want to say hi, let’s connect:
-          <br />
-          <strong>Email:</strong>
-          <a href="mailto:your-email@example.com">your-email@example.com</a>
-        </p>
+  <footer class="site-footer">
+    © <span id="year"></span> Mamatha Kunduri · Data Engineer
+  </footer>
 
-        <div class="social-links">
-          <a href="#" target="_blank">LinkedIn</a>
-          <a href="#" target="_blank">GitHub</a>
-          <a href="#" target="_blank">Instagram</a>
-          <a href="#" target="_blank">Portfolio PDF</a>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      © 2025 Mamatha Kunduri — Designed & built with love.
-    </footer>
-  </div>
+  <script src="script.js"></script>
 </body>
 </html>
